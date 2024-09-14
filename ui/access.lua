@@ -1,6 +1,6 @@
-if _G.loadInit then
-    print("ui/main.lua")
-    _G.loadInit = false
+if _G.CHECKDONE then
+    print("ui/main.lua loaded successfully")
+    _G.CHECKDONE = false
 else
-    error("test")
+    error("Error Code: 9")
 end

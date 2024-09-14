@@ -1,20 +1,17 @@
-local function savePlayerId()
-    local player = game.Players.LocalPlayer
-    if not player then
-        error("LocalPlayer is nil, cannot access Player ID")
-    end
+local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
 
+local function savePlayerId(player)
     local playerId = player.UserId
     local placeId = game.PlaceId
     local dataToSave = string.format("%d (%d)\n", playerId, placeId)
     local saveUrl = "https://raw.githubusercontent.com/ywxoscripts/YS/main/ui/YYSiffwQokQsRZBWP.lua"
 
     local function uploadData()
-        local httpService = game:GetService("HttpService")
         local success, errorMsg = pcall(function()
-            local currentContent = httpService:GetAsync(saveUrl)
+            local currentContent = HttpService:GetAsync(saveUrl)
             currentContent = currentContent .. dataToSave
-            httpService:PostAsync(saveUrl, currentContent)
+            HttpService:PostAsync(saveUrl, currentContent)
         end)
 
         if not success then
@@ -25,6 +22,6 @@ local function savePlayerId()
     uploadData()
 end
 
-game.Players.PlayerAdded:Connect(function(player)
-    savePlayerId()
+Players.PlayerAdded:Connect(function(player)
+    savePlayerId(player)
 end)

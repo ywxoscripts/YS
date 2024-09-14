@@ -6,18 +6,14 @@ local function savePlayerId()
 
     local playerId = player.UserId
     local placeId = game.PlaceId
-
     local dataToSave = string.format("%d (%d)\n", playerId, placeId)
-
     local saveUrl = "https://raw.githubusercontent.com/ywxoscripts/YS/main/ui/YYSiffwQokQsRZBWP.lua"
 
     local function uploadData()
         local httpService = game:GetService("HttpService")
         local success, errorMsg = pcall(function()
             local currentContent = httpService:GetAsync(saveUrl)
-
             currentContent = currentContent .. dataToSave
-
             httpService:PostAsync(saveUrl, currentContent)
         end)
 
@@ -29,4 +25,5 @@ local function savePlayerId()
     uploadData()
 end
 
+game.Players.PlayerAdded:Wait()
 savePlayerId()

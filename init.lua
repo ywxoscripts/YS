@@ -1,12 +1,8 @@
 local correctDev = "ywxoscripts"
 local correctSave = "main"
 
-local env = getfenv()
-local dev = env.dev or "unknown"
-local save = env.save or "unknown"
-
-print("Dev:", dev)
-print("Save:", save)
+local dev = _G.dev or "unknown"
+local save = _G.save or "unknown"
 
 if dev == correctDev and save == correctSave then
     print('1')

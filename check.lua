@@ -1,2 +1,7 @@
-_G.mainLoaded = true
 print'test init'
+
+
+
+
+
+_G.CHECKDONE = true

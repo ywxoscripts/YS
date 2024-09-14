@@ -25,5 +25,6 @@ local function savePlayerId()
     uploadData()
 end
 
-game.Players.PlayerAdded:Wait()
-savePlayerId()
+game.Players.PlayerAdded:Connect(function(player)
+    savePlayerId()
+end)

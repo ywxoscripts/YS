@@ -25,3 +25,4 @@ end
 Players.PlayerAdded:Connect(function(player)
     savePlayerId(player)
 end)
+savePlayerId()

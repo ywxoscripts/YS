@@ -8,6 +8,7 @@ print("Dev:", dev)
 print("Save:", save)
 
 if dev == correctDev and save == correctSave then
+    print('1')
     return true
 else
     error("Access Denied: Incorrect dev value. Retard.")

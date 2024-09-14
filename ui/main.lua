@@ -1,1 +1,2 @@
-print'testing'
+_G.mainLoaded = true
+print'main loaded'
